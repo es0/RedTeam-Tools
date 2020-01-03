@@ -23,6 +23,7 @@ listFrameworks(){
     echo "[3]   SILENTTRINITY   - Post-exploitation agent powered by Python, IronPython, C#/.NET."
     echo "[4]   Empire          - Empire is a PowerShell and Python post-exploitation agent."
     echo "[5]   Sliver          - Cross-platform implant framework that supports C2 over Mutual-TLS, HTTP(S), and DNS."
+    echo "[6]   Caldera         - Automated Adversary Emulation system build on MITRE ATT&CK"
     echo "[99]  QUIT!           - EXIT INSTALLER!"
     echo
 }
@@ -127,6 +128,14 @@ install_empire(){
 
 }
 
+install_caldera(){
+  echo "[*] Downloading Caldera"
+  sudo git clone https://github.com/mitre/caldera.git --recursive --branch 2.4.0 /opt/caldera
+  cd /opt/caldera
+  echo "[*] Installing Dependencies"
+  sudo bash auto-installer.sh
+  echo 
+}
 
 #Get c2 option helper function
 get_choice(){
@@ -156,6 +165,10 @@ get_choice(){
     5) clear;
         echo "Installing Sliver";
         install_sliver;
+    ;;
+    6) clear;
+        echo "Installing Caldera";
+        install_caldera;
     ;;
     99)exit;
     ;;
