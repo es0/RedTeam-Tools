@@ -8,12 +8,49 @@ echo " |  _  // _ \/ _\` |  | |/ _ \/ _\` | '_ \` _ \______| |  | |\___ \ ";
 echo " | | \ \  __/ (_| |  | |  __/ (_| | | | | | |     | |__| |____) |";
 echo " |_|  \_\___|\__,_|  |_|\___|\__,_|_| |_| |_|      \____/|_____/ ";
 echo "                                                                 ";
-echo "                                           Tool Installer        ";
+echo "                                                Installer        ";
 
 
+
+
+
+
+echo "Checking OS..."
+os-name=$(cat /etc/os-release | grep "ID" | cut -d"=" -f2)
+os-version=$(cat /etc/os-release | grep "VERSION_ID" | cut -d"=" -f2)
+echo "Running $os-name $os-version"
+echo
+
+echo "[+] Installing Dependencies"
+if [$os-name == 'ubuntu']; then
+    if [$os-version == '"16.04"']; then
+      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+      sudo apt install apt-transport-https ca-certificates
+      echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+      sudo apt update
+    if [ $os-version == '"18.04"' ]; then
+      sudo apt install gnupg ca-certificates
+      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+      echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+      sudo apt update
+else
+  echo "Using Kali.. Good to Go!"
+  echo
+fi
 # Install updates for OS [LINUX]
 echo -e "Updating OS."
 apt update ; apt-get -y upgrade ; apt-get -y dist-upgrade ; apt-get -y autoremove ; apt-get -y autoclean ; echo
+
+apt -y install python3 python3-pip git apache2 python-requests libapache2-mod-php python-pymssql build-essential python-pexpect python-pefile python-crypto python-openssl libssl1.0-dev libffi-dev python-dev python-pip tcpdump python-virtualenv build-essential cmake libgtk-3-dev libboost-all-dev libx11-dev libatlas-base-dev libboost-python-dev pkg-config
+apt install mono-devel -y
+
+pip install -r requirements.txt
+echo "[+] Installing Tools"
+echo
+
+
+
+
 
 # Making Directories
 mkdir -p /opt/{Reconnaissance/{Active,Passive},Frameworks,Weaponization,Delivery/{Phishing},"Command and Control"/{"Remote Access",Staging},"Lateral Movement","Establish Foothold","Escalate Privileges"/{"Domain Escalation","Local Escalation"},"Data Exfiltration"}
