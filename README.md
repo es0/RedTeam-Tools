@@ -14,3 +14,4 @@ script to grab tools for red team engagement.
       + Caldera         - Automated Adversary Emulation system build on MITRE ATT&CK
    
  + RedTeam-OS-Installer.sh    - Installs a bunch of tools for Red Team Engagments.
+     [ Basically Shr3dKit with small modifications - https://github.com/shr3ddersec/Shr3dKit ]
