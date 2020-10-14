@@ -140,7 +140,7 @@ install_caldera(){
 
 install_mythic(){
   echo "[*] Downloading Mythic"
-  sudo git clone https://github.com/its-a-feature/Mythic --recursive --branch 2.4.0 /opt/mythic
+  sudo git clone https://github.com/its-a-feature/Mythic /opt/mythic
   cd /opt/mythic
   echo "[*] Installing Dependencies"
   sudo bash install_docker_ubuntu.sh
