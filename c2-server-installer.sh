@@ -24,6 +24,7 @@ listFrameworks(){
     echo "[4]   Empire          - Empire is a PowerShell and Python post-exploitation agent."
     echo "[5]   Sliver          - Cross-platform implant framework that supports C2 over Mutual-TLS, HTTP(S), and DNS."
     echo "[6]   Caldera         - Automated Adversary Emulation system build on MITRE ATT&CK"
+    echo "[7]   Mythic          - A cross-platform, post-exploit, red teaming framework"
     echo "[99]  QUIT!           - EXIT INSTALLER!"
     echo
 }
@@ -137,6 +138,18 @@ install_caldera(){
   echo 
 }
 
+install_mythic(){
+  echo "[*] Downloading Mythic"
+  sudo git clone https://github.com/its-a-feature/Mythic --recursive --branch 2.4.0 /opt/mythic
+  cd /opt/mythic
+  echo "[*] Installing Dependencies"
+  sudo bash install_docker_ubuntu.sh
+  echo
+  echo "[!] MODIFY CONFIG [/mythic-docker/config.json] BEFORE USE!!"
+  echo "    Then run start_mythic.sh [Recomend starting without Documentation container] "
+  echo 
+}
+
 #Get c2 option helper function
 get_choice(){
   local opt
@@ -170,6 +183,10 @@ get_choice(){
         echo "Installing Caldera";
         install_caldera;
     ;;
+    7) clear;
+        echo "Installing Mythic"
+        install_mythic;
+    ;;    
     99)exit;
     ;;
     *)clear;
