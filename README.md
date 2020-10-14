@@ -4,7 +4,7 @@ Scripts to grab tools for red team engagement.
 
 # Scripts in this repo
  + c2-server-installer.sh     - Installs C2 Server Frameworks (Beta)
-    + Frameworks:
+    + Available Frameworks:
       + FactionC2       - A modern, flexible C2 framework (currently very beta)
       + Covenant        - Collaborative .NET C2 framework for red teamers
       + Koadic          - COM Command & Control, is a Windows post-exploitation rootkit
