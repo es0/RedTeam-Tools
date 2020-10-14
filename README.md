@@ -1,5 +1,5 @@
 # RedTeam-Tools
-script to grab tools for red team engagement.
+Scripts to grab tools for red team engagement.
 
 
 # Scripts in this repo
