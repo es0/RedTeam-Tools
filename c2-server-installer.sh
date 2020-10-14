@@ -211,6 +211,7 @@ while $notinstalled
       echo
       echo
       loadbar
+      echo
       echo "[*] DONE INSTALLING"
       echo "[+] Have a nice day :)"
 done
