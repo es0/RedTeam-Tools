@@ -2,7 +2,7 @@
 script to grab tools for red team engagement.
 
 
-# Scripts
+# Scripts in this repo
  + c2-server-installer.sh     - Installs C2 Server Frameworks (Beta)
     + Frameworks:
       + FactionC2       - A modern, flexible C2 framework (currently very beta)
@@ -12,6 +12,7 @@ script to grab tools for red team engagement.
       + Empire          - Empire is a PowerShell and Python post-exploitation agent. [NEW VERSION]
       + Sliver          - Cross-platform implant framework that supports C2 over Mutual-TLS, HTTP(S), and DNS.
       + Caldera         - Automated Adversary Emulation system build on MITRE ATT&CK
+      + Mythic          - A cross-platform, post-exploit, red teaming framewor
    
  + RedTeam-OS-Installer.sh    - Installs a bunch of tools for Red Team Engagments.
      [ Basically Shr3dKit with small modifications - https://github.com/shr3ddersec/Shr3dKit ]
